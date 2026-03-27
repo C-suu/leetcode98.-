@@ -43,6 +43,13 @@ class Solution:
         return left < x < right and \                     # 判断当前数值是否严格处于允许的上下界之间
                self.isValidBST(root.left, left, x) and \  # 递归：验证左子树，并将当前值 x 作为左子树的新上界
                self.isValidBST(root.right, x, right)      # 递归：验证右子树，并将当前值 x 作为右子树的新下界
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode], left = -inf, right = inf) -> bool:
+        if root is None:
+            return True
+        x = root.val
+        return left < x < right and self.isValidBST(root.left, left, x) and self.isValidBST(root.right, x, right)
 ```
 
 ---
